@@ -1,10 +1,10 @@
-import { Action, ActionCreator } from 'redux';
+import { Action } from 'redux';
 import { ActionTypes } from './actionTypes';
 
-export type Diameter = 512 | 1024 | 2048 | 4096 | 8192;
-export type OffsetX = number;
-export type OffsetY = number;
-export type Seed = number;
+export type Diameter = "512" | "1024" | "2048" | "4096" | "8192";
+export type OffsetX = string;
+export type OffsetY = string;
+export type Seed = string;
 
 export interface SetDiameterAction extends Action {
     type: ActionTypes.SET_DIAMETER;
@@ -23,5 +23,4 @@ export interface SetSeedAction extends Action {
     value: Seed
 }
 
-export type ParamsFields = Diameter | OffsetY | OffsetX | Seed
 export type ParamsAction = SetDiameterAction | SetOffsetXAction | SetOffsetYAction | SetSeedAction;

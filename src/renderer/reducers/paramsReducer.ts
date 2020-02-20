@@ -12,10 +12,10 @@ export interface ParamsState {
 }
 
 const defaultState: ParamsState = {
-    diameter: 512,
-    offsetX: 0,
-    offsetY: 0,
-    seed: 0,
+    diameter: "512",
+    offsetX: "0",
+    offsetY: "0",
+    seed: "0",
 };
 
 export const paramsReducer: Reducer<ParamsState, ParamsAction> = (

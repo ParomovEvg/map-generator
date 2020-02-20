@@ -2,10 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useCallback } from 'react';
 import { ActionTypes } from '../actions/actionTypes';
 import { RootState } from '../reducers';
-import { ParamsFields } from '../actions/paramsActions';
 
 export type StateTuple<T> = [ T, (params:T) => void ]
-export type GlobalFields = ParamsFields
 
 export const useGlobalState = <T>(
     type:ActionTypes,
