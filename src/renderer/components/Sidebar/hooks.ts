@@ -1,33 +1,38 @@
-import { useSelector } from 'react-redux';
-import { StateTuple, useGlobalState } from '../../hooks/useGlobalState';
-import { Diameter, OffsetX, OffsetY, Seed } from '../../actions/paramsActions';
-import { ActionTypes } from '../../actions/actionTypes';
-import { ParamsState } from '../../reducers/paramsReducer';
-import { RootState } from '../../reducers';
-import { useCallback, useRef } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import {
+    Diameter,
+    OffsetX,
+    OffsetY,
+    Params,
+    Seed,
+    setDiameter,
+    setOffsetX,
+    setOffsetY,
+    setSeed
+} from '../../slices/params';
+import { useAction } from '../../hooks/useAction';
 
-export const useDiameter = (): StateTuple<Diameter> =>
-    useGlobalState<Diameter>(ActionTypes.SET_DIAMETER, store => store.params.diameter);
-
-export const useOffsetX = (): StateTuple<OffsetX> =>
-    useGlobalState<OffsetX>(ActionTypes.SET_OFFSET_X, store => store.params.offsetX);
-
-export const useOffsetY = (): StateTuple<OffsetY> =>
-    useGlobalState<OffsetY>(ActionTypes.SET_OFFSET_Y, store => store.params.offsetY);
-
-export const useSeed = (): StateTuple<Seed> =>
-    useGlobalState<Seed>(ActionTypes.SET_SEED, store => store.params.seed);
-
-export const useParams = (): ParamsState =>
-    useSelector<RootState, ParamsState>(state => state.params);
-
-export const useSubmitHandler = () => {
-    const server = useRef()
-    const params = useParams();
-    return useCallback(() => {
-        const isNumbers = Object.values(params).every(value => !Number.isNaN(parseInt(value, 10)));
-        if (isNumbers){
-
-        }
-    }, [params]);
+export const useDiameter = () => {
+    return [
+        useSelector<RootState, Diameter>(state => state.params.diameter),
+        useAction(setDiameter)
+    ];
 };
+
+export const useOffsetX = () => {
+    const dispatch = useDispatch();
+    return [useSelector<RootState, OffsetX>(state => state.params.offsetX), setOffsetX];
+};
+
+export const useOffsetY = () => {
+    const dispatch = useDispatch();
+    return [useSelector<RootState, OffsetY>(state => state.params.offsetY), setOffsetY];
+};
+
+export const useSeed = () => {
+    const dispatch = useDispatch();
+    return [useSelector<RootState, Seed>(state => state.params.seed), setSeed];
+};
+
+export const useParams = (): Params => useSelector<RootState, Params>(state => state.params);

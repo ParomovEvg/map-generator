@@ -1,6 +1,6 @@
 import { Button } from '@material-ui/core';
 import * as React from 'react';
-import { FunctionComponent, useCallback } from 'react';
+import { FormEvent, FunctionComponent } from 'react';
 import { InputDiameter } from './InputDiameter';
 import { InputSeed } from './InputSeed';
 import { InputOffsetX } from './InputOffsetX';
@@ -8,9 +8,8 @@ import { InputOffsetY } from './inputOffsetY';
 import './Sidebar.scss';
 
 export const Sidebar: FunctionComponent = () => {
-    const submitHandler = (e) => {
+    const submitHandler = (e:FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        console.log(e)
     };
     return (
         <form onSubmit={submitHandler}>

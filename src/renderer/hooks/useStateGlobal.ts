@@ -1,0 +1,3 @@
+const useStateGlobal = <T>() => {
+
+};

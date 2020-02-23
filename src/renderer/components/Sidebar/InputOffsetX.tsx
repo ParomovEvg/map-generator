@@ -2,8 +2,7 @@ import * as React from 'react';
 import { ChangeEvent, FunctionComponent } from 'react';
 import { TextField } from '@material-ui/core';
 import { useOffsetX } from './hooks';
-import {  OffsetX } from '../../actions/paramsActions';
-
+import { OffsetX } from '../../slices/params';
 
 export const InputOffsetX: FunctionComponent = () => {
     const [offsetX, setOffsetX] = useOffsetX();
@@ -19,7 +18,7 @@ export const InputOffsetX: FunctionComponent = () => {
                 value={offsetX}
                 onChange={handleChange}
                 variant="outlined"
-                inputProps={{type:"number"}}
+                inputProps={{ type: 'number' }}
             />
         </div>
     );

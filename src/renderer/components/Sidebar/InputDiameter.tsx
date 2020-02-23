@@ -2,16 +2,16 @@ import * as React from 'react';
 import { ChangeEvent, FunctionComponent } from 'react';
 import { MenuItem, Select, TextField } from '@material-ui/core';
 import { useDiameter } from './hooks';
-import { Diameter } from '../../actions/paramsActions';
+import { Diameter } from '../../slices/params';
 
 export const InputDiameter: FunctionComponent = () => {
     const [diameter, setDiameter] = useDiameter();
 
-    const options: Array<Diameter> = ["512", "1024", "2048", "4096", "8192"];
+    const options: Array<Diameter> = ['512', '1024', '2048', '4096', '8192'];
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value as Diameter;
-        if(options.includes(value)){
+        if (options.includes(value)) {
             setDiameter(value);
         }
     };

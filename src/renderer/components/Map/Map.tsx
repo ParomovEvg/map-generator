@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Paper } from '@material-ui/core';
 import './Map.scss';
 import { ReactElement } from 'react';
-import { useDiameter, useParams } from '../Sidebar/hooks';
+import { useParams } from '../Sidebar/hooks';
 
 export interface MapProps {
     rect: DOMRectReadOnly;

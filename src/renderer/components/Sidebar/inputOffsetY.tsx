@@ -1,14 +1,14 @@
 import * as React from 'react';
 import { ChangeEvent, FunctionComponent } from 'react';
 import { TextField } from '@material-ui/core';
-import {  useOffsetY } from './hooks';
-import { OffsetY } from '../../actions/paramsActions';
+import { useOffsetY } from './hooks';
+import { OffsetY } from '../../slices/params';
 
 export const InputOffsetY: FunctionComponent = () => {
     const [offsetY, setOffsetY] = useOffsetY();
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value as OffsetY;
-            setOffsetY(value);
+        setOffsetY(value);
     };
     return (
         <div className="sidebar__input-wrapper">
@@ -18,7 +18,7 @@ export const InputOffsetY: FunctionComponent = () => {
                 value={offsetY}
                 onChange={handleChange}
                 variant="outlined"
-                inputProps={{type:"number"}}
+                inputProps={{ type: 'number' }}
             />
         </div>
     );

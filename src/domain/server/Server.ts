@@ -1,6 +1,6 @@
 import * as WebSocket from 'ws';
 import { Message } from './Message';
-import { Maybe } from '../monads/Maybe';
+import { Maybe } from '../../renderer/models/monads/Maybe';
 
 export interface ServerInterface {
     listen(PORT: number): void;

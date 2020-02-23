@@ -1,8 +1,5 @@
 import { MutableRefObject, useEffect} from 'react';
 import { debounce } from 'lodash';
-import { useGlobalState } from '../../hooks/useGlobalState';
-import { Diameter, OffsetX, OffsetY, Seed } from '../../actions/paramsActions';
-import { ActionTypes } from '../../actions/actionTypes';
 import { useRefMb, useStateMb } from '../../hooks/mayBeHooks';
 import { Maybe } from '../../models/monads/Maybe';
 
@@ -21,7 +18,6 @@ const createObserver = (setRect: SetRect) =>
                 debSetRect(setRect, el.contentRect);
             });
     });
-
 
 export type SquareRect = Maybe<DOMRectReadOnly>
 export type SquareRef = MutableRefObject<HTMLElement>

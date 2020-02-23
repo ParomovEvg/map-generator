@@ -16,7 +16,9 @@ export enum SEND_MESS_TYPE {
  */
 export class Message {
     private readonly messType : SEND_MESS_TYPE;
+
     private readonly data : any;
+
     constructor(
         messType: SEND_MESS_TYPE,
         data: any
